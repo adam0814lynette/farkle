@@ -24,6 +24,8 @@ Farkle is a static, installable mobile web game built with plain HTML, CSS, and 
 
 The active game is saved under `adams-farkle-state-v1`. Preferences, statistics, and tutorial completion use separate versioned keys. Saved state is structurally validated before resuming. When changing cached assets, increment `CACHE` in `sw.js`; the app will offer the waiting service worker through its update banner.
 
+The manifest uses the explicit ID `/adams-farkle`. Do not reuse that ID for another app. Keep Farkle, Yahtzee, and Solitaire at distinct URLs even when they share a domain.
+
 ## Release checklist
 
 - Run `npx playwright test tests/farkle.spec.js`.

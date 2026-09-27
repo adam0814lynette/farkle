@@ -31,6 +31,8 @@ Open `http://localhost:8000/`. Opening `index.html` directly also works for game
 
 Copy this directory into a GitHub repository, then configure Pages to publish from the branch and directory containing `index.html`. All paths are relative, so the game works at a repository subpath. After publishing, verify installation and an offline reload from the live HTTPS address.
 
+Farkle declares `/adams-farkle` as its manifest identity so browsers do not confuse it with another PWA on the same domain. Each game must still remain at its own stable URL—such as `/farkle/`, `/yahtzee/`, and `/adamSol/`—because installed apps launch their published URLs.
+
 ## Rules summary
 
 On each turn, roll six dice and select at least one scoring die or combination. Bank to protect the turn total, or roll the remaining dice to keep building it. A roll with no scoring dice is a Farkle and loses the unbanked turn total. Scoring all six creates hot dice and allows another roll with all six.

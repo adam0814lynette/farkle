@@ -1,7 +1,10 @@
 {
   "name": "Farkle — Roll, Risk, Repeat",
   "short_name": "Farkle",
+  "description": "A polished push-your-luck dice game with solo, local, and AI play.",
+  "id": "/adams-farkle",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#f6f0e3",
@@ -11,5 +14,9 @@
     {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},
     {"src":"icon-maskable-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"},
     {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}
+  ],
+  "screenshots": [
+    {"src":"screenshots/setup.png","sizes":"390x844","type":"image/png","form_factor":"narrow","label":"Farkle game setup"},
+    {"src":"screenshots/gameplay.png","sizes":"390x844","type":"image/png","form_factor":"narrow","label":"Farkle gameplay"}
   ]
 }
