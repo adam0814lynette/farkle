@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#173f34">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Farkle</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+    <section id="setupScreen" class="screen setup-screen active">
+      <header class="hero">
+        <button id="themeBtn" class="round-button" aria-label="Toggle dark mode">☾</button>
+        <div class="hero-dice" aria-hidden="true"><span class="mini-die">1</span><span class="mini-die">5</span></div>
+        <p class="eyebrow">Roll. Risk. Repeat.</p>
+        <h1>Farkle</h1>
+        <p class="subtitle">A classic game of nerve and lucky dice.</p>
+      </header>
+
+      <div id="resumeCard" class="resume-card hidden">
+        <div><small>GAME IN PROGRESS</small><strong id="resumeText">Continue your game</strong></div>
+        <button id="resumeBtn" class="small-primary">Resume</button>
+      </div>
+
+      <section class="setup-card">
+        <div class="preset-row">
+          <button class="preset selected" data-preset="solo">Solo</button>
+          <button class="preset" data-preset="ai">Vs AI</button>
+          <button class="preset" data-preset="local">Pass &amp; Play</button>
+        </div>
+        <label class="field-label" for="playerCount">Players</label>
+        <select id="playerCount">
+          <option value="1">1 player</option><option value="2">2 players</option>
+          <option value="3">3 players</option><option value="4">4 players</option>
+        </select>
+        <div id="playerList" class="player-list"></div>
+        <div class="two-fields">
+          <label><span>Play to</span><select id="targetScore"><option value="5000">5,000</option><option value="10000" selected>10,000</option></select></label>
+          <label><span>Entry score</span><select id="entryScore"><option value="0" selected>None</option><option value="500">500</option></select></label>
+        </div>
+        <div class="preference-row">
+          <label><input id="soundToggle" type="checkbox" checked> Sound</label>
+          <label><input id="hapticsToggle" type="checkbox" checked> Haptics</label>
+        </div>
+      </section>
+
+      <div class="setup-actions">
+        <div class="learn-actions"><button id="tutorialBtn" class="secondary-button">How to play</button><button id="statsBtn" class="secondary-button">Statistics</button></div>
+        <button id="startBtn" class="primary-button">Start game <span>→</span></button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen">
+      <header class="game-header">
+        <button id="menuBtn" class="round-button" aria-label="Game menu">☰</button>
+        <div class="turn-heading"><small id="turnLabel">YOUR TURN</small><strong id="currentPlayer">Player 1</strong></div>
+        <div class="target"><small>PLAY TO</small><strong id="targetLabel">10,000</strong></div>
+      </header>
+
+      <div id="scoreStrip" class="score-strip"></div>
+
+      <section class="turn-card">
+        <div class="turn-total"><span>TURN TOTAL</span><strong id="turnTotal" aria-live="polite">0</strong></div>
+        <div id="statusText" class="status-text" aria-live="polite">Roll all six dice to begin.</div>
+        <div id="diceTray" class="dice-tray" aria-label="Dice"></div>
+        <div class="selection-line"><span>Selected</span><strong id="selectionScore">0</strong></div>
+        <div class="action-row">
+          <button id="bankBtn" class="bank-button" disabled><span>Bank</span><strong id="bankValue">0</strong></button>
+          <button id="rollBtn" class="roll-button">Roll dice</button>
+        </div>
+        <button id="suggestBtn" class="hint-button">◇ Suggest scoring dice</button>
+      </section>
+
+      <div class="game-tip"><span>TIP</span><p id="gameTip">Ones and fives score by themselves.</p></div>
+    </section>
+
+    <section id="resultsScreen" class="screen results-screen">
+      <p class="eyebrow">Game complete</p><h2 id="winnerTitle">Well played!</h2>
+      <div id="finalScores" class="final-scores"></div>
+      <button id="playAgainBtn" class="primary-button">Play again</button>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet" tabindex="-1">
+      <div class="grab"></div>
+      <div id="sheetBody"></div>
+    </div>
+  </div>
+
+  <div id="updateBanner" class="update-banner hidden"><span>A new version is ready.</span><button id="updateBtn">Update now</button><button id="laterBtn" aria-label="Dismiss update">Later</button></div>
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
